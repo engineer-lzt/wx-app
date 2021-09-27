@@ -20,7 +20,7 @@
       @scroll="scrollChange"
     >
       <view class="content">
-        <slot name="content"></slot>
+        <slot></slot>
       </view>
 
       <load-more

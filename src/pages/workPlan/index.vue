@@ -10,9 +10,6 @@
     @titleClick="selectYear"
   >
     <view class="work-plan" slot="content">
-      <!-- <view class="search-nav">
-        <text @click="openYearPop" class="year-name">年份：{{ curYear }}</text>
-      </view> -->
       <view class="week-list">
         <view class="week-item" v-for="(item, i) in week" :key="i">
           {{ item }}
@@ -27,7 +24,7 @@
           ref="refreshView"
           :infiniteDisabled="true"
         >
-          <view class="slot-dom" slot="content">
+          <view class="slot-dom">
             <view class="month-day" v-for="i in 12" :key="i">
               <view class="month-title_name">
                 <text>{{ MonthList[i].ym }}</text>
@@ -46,7 +43,6 @@
                 </view>
               </view>
             </view>
-            <!-- <view class="month-day" v-for="i in 12" :key="i">{{ i }}</view> -->
           </view>
         </refresh>
       </view>

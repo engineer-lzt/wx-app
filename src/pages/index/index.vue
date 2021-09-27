@@ -15,7 +15,7 @@
       </view>
       <!-- 分类 -->
       <view v-show="currentIndex == 2" class="slot-content">
-        <Detail />
+        <Detail :isShow="currentIndex == 2" />
       </view>
       <!-- 订单信息 -->
       <view v-show="currentIndex == 3" class="slot-content">
@@ -31,8 +31,8 @@
 
 <script>
 import AppComponent from "@/component/app-container.vue";
-import PersonalCenter from "@/component/PersonalCenter";
-import Detail from "../detail/detail";
+import PersonalCenter from "@/component/tabComponent/personalCenter";
+import Detail from "@/component/tabComponent//detail";
 export default {
   data() {
     return {

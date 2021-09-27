@@ -23,8 +23,15 @@ import tkiQrcode from "@/component/tki-qrcode";
 import { DesEncrypt } from "@/util/common.js";
 import { CheckQrcode, generateUUID } from "@/util/common.js";
 export default {
+  props: {
+    isShow: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
+      isFirstLoad: true,
       showScan: false,
       codeList: [],
       val: "",
@@ -37,12 +44,25 @@ export default {
     ScanCamera,
     tkiQrcode,
   },
-
+  watch: {
+    isShow: {
+      deep: true,
+      handler(n) {
+        if (n && this.isFirstLoad) {
+          this.getData();
+        }
+      },
+    },
+  },
   computed: {},
 
   mounted() {},
 
   methods: {
+    getData() {
+      console.log("detail page!!!");
+      this.isFirstLoad = false;
+    },
     //开启扫码
     startScan() {
       function playMusic() {
@@ -127,8 +147,8 @@ export default {
 </script>
 <style>
 .shop-detail-contain {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: #edeef0;
   overflow: hidden;
 }

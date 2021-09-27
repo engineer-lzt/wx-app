@@ -8,10 +8,10 @@
     <view class="task-list" slot="content">
       <refresh
         refresher
-        infiniting
         @on-refresh="refresh"
         class="page-content"
         navbgColor="primary"
+        @on-scrollEnd="onScrollEnd"
       >
         <view class="task-list_item" v-for="i in 20" :key="i">
           <view class="task-name">
@@ -58,6 +58,11 @@ export default {
       setTimeout(() => {
         // this.getData();
         complete(); // 结束下拉刷新
+      }, 1000);
+    },
+    onScrollEnd(callBack) {
+      setTimeout(() => {
+        callBack && callBack(false);
       }, 1000);
     },
   },
